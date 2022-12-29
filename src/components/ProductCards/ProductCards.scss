@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.card {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   gap: .5rem;
+   cursor: pointer;
+//    border: 1px solid blue;
+
+   img {
+    height: 80%;
+    width: 400px;
+    object-fit: cover;
+   }
+}
