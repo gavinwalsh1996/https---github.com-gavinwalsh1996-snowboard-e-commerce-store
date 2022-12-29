@@ -1,4 +1,4 @@
-  import React from 'react'
+  import React, { useState } from 'react'
 
   //Components
   // import PokemonRow from './components/PokemonRow'
@@ -14,6 +14,9 @@
   import evilTwin from './images/evil-twin.webp'
 
   function App() {
+
+    //State 
+    const [filteredSearch, setFilteredSearch] = useState('');
 
    //Pokemon Data
   const bulbasaur = {
@@ -31,6 +34,7 @@
        availability: "in stock",
        shape: "directional",
        Level: "Expert",
+       terrain: '',
        size: "156",
        price: "500",
        sprite: thunderBolt,
@@ -81,7 +85,7 @@
       <>
         <SearchBar arr={SnowboardArray}/>
         {/* <PokemonRow obj={bulbasaur}/> */}
-        <FilterableTable arr={SnowboardArray}/>
+        <FilterableTable arr={SnowboardArray} setFilteredSearch={setFilteredSearch}/>
       </>
     )
   }

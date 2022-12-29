@@ -3,6 +3,9 @@ import React from 'react'
 //Styles
 import '../ProductCards/ProductCards.scss';
 
+//Components
+import Ratings from '../Ratings';
+
 function Table({...object}) {
 
   return (
@@ -13,7 +16,8 @@ function Table({...object}) {
       <p>Directional freeride snowboard</p>
       <span>reviews</span>
       <span>price: 600</span>
-      <p>{object.id}</p>
+      <Ratings />
+      {/* <p>{object.id}</p> */}
       <p>{object.types}</p>
     </div>
   )

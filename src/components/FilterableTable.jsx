@@ -4,7 +4,7 @@ import React, { useState, useEffect, useMemo } from 'react'
 import TypeSelector from './TypeSelector'
 import ProductCards from './ProductCards/ProductCards'
 
-function FilterablePokedexTable({arr}) {
+function FilterableTable({arr}) {
 
    // State to store the all items / full product array
  const [allObjects, setAllobjects] = useState([]);
@@ -18,18 +18,35 @@ function FilterablePokedexTable({arr}) {
  }, []);
 
  // Function to filter the main array with the selected filter value stored in the state
+ // Original function that wasn't working.
+ //  function getFilteredList() {
+ //   if (!filteredObjects) {
+ //     return allObjects;  
+ //   } 
+ //     if (filteredObjects === 'directional' || 'directional-twin' || 'twin' ) {
+ //       return allObjects.filter((object) => object.shape === filteredObjects)
+
+ //     } else if (filteredObjects === '154' || '156' || '157' ) {
+ //       return allObjects.filter((object) => object.size === filteredObjects)
+ //     }
+ //  }
+
  function getFilteredList() {
-  if (!filteredObjects) {
-    return allObjects;
-  } 
-    return allObjects.filter((object) => object.size === filteredObjects
-    )
- }
+    if (!filteredObjects) {
+      return allObjects;  
+    } 
+    const allowedSizes = ['154', '156', '157'];
+    if (allowedSizes.includes(filteredObjects)) {
+      return allObjects.filter((object) => object.size === filteredObjects);
+    } else {
+      return allObjects.filter((object) => object.shape === filteredObjects);
+    }
+  }
 
-// Use memo hook is used to prevent multiple calls. Only calls function when state changes
-// Everything is now stored in FilteredList variable
+    // Use memo hook is used to prevent multiple calls. Only calls function when state changes
+    // Everything is now stored in FilteredList variable
+    let filteredList = useMemo(getFilteredList, [allObjects, filteredObjects]);
 
-   let filteredList = useMemo(getFilteredList, [allObjects, filteredObjects]);
 
 
   return (
@@ -50,4 +67,4 @@ function FilterablePokedexTable({arr}) {
   )
 }
 
-export default FilterablePokedexTable
+export default FilterableTable
