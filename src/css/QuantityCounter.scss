@@ -1,0 +1,13 @@
+.counter-container {
+    width: 100px;
+    border: .5px solid grey;
+    border-radius: .2rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    align-items: center;
+
+    span {
+        cursor: pointer;
+    }
+}

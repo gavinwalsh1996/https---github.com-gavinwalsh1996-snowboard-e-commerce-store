@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.card {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   gap: .5rem;
+   cursor: pointer;
+   position: relative;
+//    border: 1px solid blue;
+
+   img {
+    height: 80%;
+    width: 400px;
+    object-fit: cover;
+    }
+
+   //  img:hover {
+   //    -webkit-filter: brightness(80%);
+   //  }
+
+   
+
+   button {
+      position: absolute;
+      opacity: 1;
+      width: 120px;
+      height: 60px;
+      cursor: pointer;
+      background-color: white;
+      color: rgb(32, 32, 32);
+      top: 250px;
+      border-color: yellow;
+      border-radius: .2rem ;
+   }
+
+   // button:hover {
+   //    opacity: 1;
+   // }
+}

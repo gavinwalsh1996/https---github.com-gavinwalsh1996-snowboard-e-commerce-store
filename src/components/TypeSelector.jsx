@@ -2,11 +2,6 @@ import React from 'react'
 
 function TypeSelector({setFilteredObjects}) {
 
-    // const PokemonTypeSelectionProps = {
-    //     selectedType: string | undefined,
-    //     selectType: (type: string | undefined) => void
-    //   }
-
     //Get user selection
     function getUserSelection(event) {
       let selection = event.target.value;

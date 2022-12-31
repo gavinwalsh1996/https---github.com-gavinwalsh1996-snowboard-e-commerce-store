@@ -1,10 +1,42 @@
 import React from 'react'
 
-function Ratings() {
+//Icons
+import StarIcon from '@mui/icons-material/Star';
+import StarBorderIcon from '@mui/icons-material/StarBorder';
 
-  return (
-    <span>star star star star star</span>
-  )
+function Ratings({arr}) {
+
+    return (
+        <div>
+          {arr.rating >= 8 ? (
+            <span>
+              <StarIcon />
+              <StarIcon />
+              <StarIcon />
+              <StarIcon />
+              <StarIcon />
+            </span>
+          ) : arr.rating >= 5 ? (
+            <span>
+              <StarIcon />
+              <StarIcon />
+              <StarIcon />
+              <StarBorderIcon />
+              <StarBorderIcon />
+            </span>
+          ) : (
+            <span>
+              <StarIcon />
+              <StarIcon />
+              <StarBorderIcon />
+              <StarBorderIcon />
+              <StarBorderIcon />
+            </span>
+          )}
+        </div>
+      );
+      
+
 }
 
 export default Ratings

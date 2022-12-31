@@ -1,10 +1,10 @@
   import React, { useState } from 'react'
 
   //Components
-  // import PokemonRow from './components/PokemonRow'
   import FilterableTable from './components/FilterableTable'
   import SearchBar from './components/SearchBar'
-  // import Button from './components/Button'
+  import Navbar from './components/Navbar'
+  // import ShoppingCart from './components/ShoppingCart'
 
   //Images
   import thunderBolt from './images/thunderbolt.webp'
@@ -16,15 +16,15 @@
   function App() {
 
     //State 
-    const [filteredSearch, setFilteredSearch] = useState('');
+    const [filteredSearch, setFilteredSearch] = useState(''); 
+    
+    //State for shopping cart
+    // Cart visibility
+    const [cartsVisibility, setCartsVisibility] = useState(false)
+    // Products in cart
+    const [productsInCart, setProductsInCart] = useState(JSON.parse(localStorage.getItem("shopping-cart")) || []);
 
-   //Pokemon Data
-  const bulbasaur = {
-    id: 1,
-    name: "Thunder Bolt",
-    types: "grass",
-    sprite: "https:pokemon.com/pictures/bulbasaur.png"
-  }
+
 
    //Snowboard Array
   const SnowboardArray = [
@@ -37,7 +37,8 @@
        terrain: '',
        size: "156",
        price: "500",
-       sprite: thunderBolt,
+       rating: '3',
+       image: thunderBolt,
      },
      {
        id: 2,
@@ -47,7 +48,8 @@
        Level: "Expert",
        size: "154",
        price: "800",
-       sprite: surfer,
+       rating: '10',
+       image: surfer,
      },
      {
        id: 3,
@@ -57,7 +59,8 @@
        Level: "Expert",
        size: "156",
        price: "700",
-       sprite: goliath,
+       rating: '5',
+       image: goliath,
      },
      {
        id: 4,
@@ -67,7 +70,8 @@
        Level: "Expert",
        size: "156",
        price: "500",
-       sprite: evilTwin,
+       rating: '8',
+       image: evilTwin,
      },
      {
        id: 5,
@@ -77,14 +81,16 @@
        Level: "Expert",
        size: "157",
        price: "600",
-       sprite: partyWave,
+       rating: '8',
+       image: partyWave,
      },
  ]
 
     return (
       <>
+        <Navbar />
+      {/* <ShoppingCart visibility={cartsVisibility} products={productsInCart} onClose={() => setCartsVisibility(false)}/> */}
         <SearchBar arr={SnowboardArray}/>
-        {/* <PokemonRow obj={bulbasaur}/> */}
         <FilterableTable arr={SnowboardArray} setFilteredSearch={setFilteredSearch}/>
       </>
     )
@@ -94,85 +100,3 @@
 
 
 
-
-
-// Filterable table
-
-
-// import React, { useState, useEffect, useMemo } from 'react'
-
-// //Item component
-// import Item from './testcomponents/Item';
-
-
-// function App() {
-
-//   // Array of objects for different categories
-//   var defaultSports = [
-//     { name: "Table Tennis", category: "indoor" },
-//     { name: "Football", category: "outdoor" },
-//     { name: "Swimming", category: "aquatics" },
-//     { name: "Chess", category: "indoor" },
-//     { name: "Rugby", category: "outdoor" },
-//     { name: "Golf", category: "outdoor" },
-//     { name: "darts", category: "indoor" }
-//   ];
-
-//     // State to display all items
-//     const [sportList, setSportList] = useState([]);
-
-//     // State for filtered items
-//     const [selectedCategory, setSelectedCategory] = useState();
-  
-//   // Use effect to out default sports into sports list when the page renders
-//   useEffect(() => {
-//     setSportList(defaultSports);
-//   }, []);
-
-//   // Function to update selected category state with dropdown menu selection
-//   function handleCategoryChange(event) {
-//     setSelectedCategory(event.target.value);
-//   }
-
-//   // Function to get the selected category from the state
-//   function getFilteredList() {
-//     if (!selectedCategory) {
-//       return sportList;
-//     }
-//     return sportList.filter((item) => item.category === selectedCategory);
-//   }
-
-//   // Use memo hook is used to prevent multiple calls. Only calls function when state changes
-//   // Everything is now stored in FilteredList variable
-//   let filteredList = useMemo(getFilteredList, [selectedCategory, sportList]);
-
-
-//   return (
-//     <div className="app">
-//       <div className="filter-container">
-//         <div>Filter by Category:</div>
-//         <div>
-//           <select 
-//           onChange={handleCategoryChange}
-//           name='category-list'
-//           id='category-list'
-//           >
-//             <option value=''>All</option>
-//             <option value='outdoor'>Outdoor</option>
-//             <option value='indoor'>Indoor</option>
-//             <option value='aquatics'>Aquatics</option>
-//           </select>
-//         </div>
-//       </div>
-//       <div className="sport-list">
-//         {/* Map array and display the filtered items from the Item component */}
-//         {filteredList.map((item, index) => (
-//           <Item {...item} key={index} />
-//         ))}
-//       </div>
-//     </div>
-//   );
-
-// }
-
-// export default App

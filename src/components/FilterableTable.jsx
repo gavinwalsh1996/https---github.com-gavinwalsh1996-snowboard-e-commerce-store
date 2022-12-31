@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo } from 'react'
 
 //Components 
 import TypeSelector from './TypeSelector'
-import ProductCards from './ProductCards/ProductCards'
+import ProductCards from './ProductCards'
 
 function FilterableTable({arr}) {
 
@@ -57,7 +57,7 @@ function FilterableTable({arr}) {
           <TypeSelector setFilteredObjects={setFilteredObjects}/>
 
         {/* Product cards */}
-        <div className="card-container" style={{display: 'flex', width: '100%', flexWrap: 'wrap', gap: '1rem'}}>
+        <div className="card-container" style={{display: 'flex', justifyContent: 'center', width: '100%', flexWrap: 'wrap', gap: '1rem'}}>
         {filteredList.map((object, index) => (
           <ProductCards {...object} key={index} />
         ))}
