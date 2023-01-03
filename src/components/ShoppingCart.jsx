@@ -1,55 +1,60 @@
-import React from 'react'
+import React, { useState } from 'react';
 
 //Css
-import '../components/ShoppingCart.scss'
+import '../css/ShoppingCart.scss'
 
-//Icons 
-import DeleteIcon from '@mui/icons-material/Delete';
-import CloseIcon from '@mui/icons-material/Close';
+function ShoppingCart({additem, price}) {
 
-function ShoppingCart({
-    visibility, //Visibility of shopping cart
-    products, //Products in shopping cart
-    onProductRemove, //On products remove
-    onClose, //When shopping cart is closed
-    onQuantityChange, //Change quantity of product
-}) {
+    //State that holds opens and closes values for cart
+  const [isOpen, setIsOpen] = useState(true);
+
+  //Function that uses the setter function to change the state value for the cart to open
+  function openPopup() {
+    setIsOpen(true);
+  }
+
+    //Function that uses the setter function to change the state value for the cart to closed
+  function closePopup() {
+    setIsOpen(false);
+  }
+
+        const total = price.reduce((acc, item) => acc + item.price, 0);
+
+
 
   return (
-    <div className="modal" style={{display: visibility ? 'block' : 'none'}}>
-        <div className="shoppingCart">
-        <div className="header">
-            <h2>Shopping Cart</h2>
-            {/* Close btn */}
-            <button className='btn close-btn' onClick={onClose}>
-                <CloseIcon />
-            </button>
-        </div>
-        {/* Shopping Cart products */}
-        <div className="cart-products">
-            {products.length === 0 && ( <span className='empty-text'>Your cart is currently empty.</span>)}
-            {products.map((product) => (
-                <div className='cart-product' key={product.id}>
-                    <img src={product.image} alt={product.name} />
-                    <div className="product-info">
-                        <h3>{product.name}</h3>
-                        <span className='product-price'>€{product.price * product.count}</span>
-                    </div>
-                    <select className='count' value={product.count} onChange={(event) => onQuantityChange(product.id, event.target.value)}>
-                        {[...Array(10).keys()].map(number => {
-                            const num = number + 1;
-                            return <option value={{num}} key={num}>{num}</option>
-                        })}
-                    </select>
-                    <button className='btn remove-btn' onclick={onProductRemove(product)}><DeleteIcon /></button>
-                </div>
+    <>
+      <div id="shopping-cart-popup" style={{ display: isOpen ? 'block' : 'none' }}> 
+        <h1>Shopping Cart</h1>
+        {/* {price.map((item) => (
+            <>
+             <h5>Total :</h5>
+            <span>{item.price}</span>
+              
+            </>
+            
+        ))} */}
+
+    <h5>Total: €{total}</h5>
+
+
+
+
+        {additem.length > 0 ? (
+          <ul>
+            {additem.map(item => (
+              <li key={item.id}>{item.name} - €{item.price}</li>
             ))}
-            {products.length > 0 && <button className='btn checkout-btn'>Proceed to checkout.</button>}
-        </div>
-        </div>
-       
-    </div>
-  )
+
+          </ul>
+        ) : (
+          <p>Your shopping cart is empty.</p>
+        )}
+        <button onClick={closePopup}>Close</button>
+      </div>
+      <button onClick={openPopup}>Open Shopping Cart</button>
+    </>
+  );
 }
 
 export default ShoppingCart

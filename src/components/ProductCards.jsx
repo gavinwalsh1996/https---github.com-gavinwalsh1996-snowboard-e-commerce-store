@@ -6,13 +6,20 @@ import '../css/ProductCards.scss';
 //Components
 import Ratings from '../components/Ratings';
 
-function Table({...object}) {
+function ProductCards ({setPrice, setAddItem, ...object}) { 
+
+
+   function addToCart(object) {
+     setAddItem((prevAdditem) => [...prevAdditem, object]);
+     setPrice((prevSetPrice) => [...prevSetPrice, object]);
+   }
+
 
   return (
 
     <div className="card">
       <img src={object.image} alt='Image' />
-      <button>Add to cart</button>
+      <button onClick={() => addToCart(object)}>Add to cart</button>
       <h3>{object.name}</h3>
       <p>Directional freeride snowboard</p>
       {/* <span>reviews</span> */}
@@ -24,4 +31,4 @@ function Table({...object}) {
   )
 }
 
-export default Table
+export default ProductCards
