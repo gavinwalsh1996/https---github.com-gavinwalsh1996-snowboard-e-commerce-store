@@ -7,6 +7,8 @@ function Navbar() {
   return (
 
     <div className="navbar">
+
+      <span style={{fontSize: '2rem'}}>Bataleon.</span>
         <ul>
             <li><ShoppingBasketIcon sx={{cursor: 'pointer'}}/></li>
         </ul>

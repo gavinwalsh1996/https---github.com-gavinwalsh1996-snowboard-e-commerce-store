@@ -1,0 +1,35 @@
+.filterable-container {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    justify-content: center;
+  }
+  
+  select {
+    background-color: white;
+    color: #5A5A5A;
+    font-size: 16px;
+    font-family: sans-serif;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    cursor: pointer;
+    height: 40px;
+    width: 150px;
+    appearance: none;
+    outline: none;
+    margin-right: 10px;
+  }
+  
+  select:hover {
+    border-color: #999;
+  }
+  
+  select:focus {
+    border-color: #4caf50;
+  }
+  
+  option[disabled] {
+    color: #ccc;
+  }
+  

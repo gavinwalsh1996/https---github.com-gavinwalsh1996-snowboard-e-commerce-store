@@ -2,11 +2,14 @@ import React, { useState } from 'react';
 
 //Css
 import '../css/ShoppingCart.scss'
+import '../css/TypeSelector.scss'
+
+import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 
 function ShoppingCart({additem, price}) {
 
     //State that holds opens and closes values for cart
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   //Function that uses the setter function to change the state value for the cart to open
   function openPopup() {
@@ -24,7 +27,7 @@ function ShoppingCart({additem, price}) {
 
   return (
     <>
-      <div id="shopping-cart-popup" style={{ display: isOpen ? 'block' : 'none' }}> 
+      <div id="shopping-cart-popup" className='shopping-cart-popup' style={{ display: isOpen ? 'block' : 'none' }}> 
         <h1>Shopping Cart</h1>
         {/* {price.map((item) => (
             <>
@@ -52,7 +55,7 @@ function ShoppingCart({additem, price}) {
         )}
         <button onClick={closePopup}>Close</button>
       </div>
-      <button onClick={openPopup}>Open Shopping Cart</button>
+      <button onClick={openPopup}><ShoppingBasketIcon sx={{cursor: 'pointer'}}/></button>
     </>
   );
 }

@@ -1,5 +1,8 @@
 import React, { useState } from "react"
 
+//Css
+import '../css/SearchBar.scss'
+
 
 function SearchBar({arr}) {
 

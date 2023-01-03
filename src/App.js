@@ -12,6 +12,7 @@
    import partyWave from './images/partywave.webp' 
    import surfer from './images/surfer.webp'
    import evilTwin from './images/evil-twin.webp'
+   import Background from './images/background.jpg'
 
    function App() {
 
@@ -80,14 +81,15 @@
     const [filteredSearch, setFilteredSearch] = useState(''); 
     const [additem, setAddItem] = useState([]);
     const [price, setPrice] = useState([]);
+
     
      return (
-       <>
+      <div style={{ backgroundImage: `url(${Background})`, backgroundAttachment: 'fixed', backgroundSize: 'cover' }}>
          <Navbar />
          <ShoppingCart additem={additem} price={price} />
          <SearchBar arr={SnowboardArray}/>
          <FilterableTable arr={SnowboardArray} setFilteredSearch={setFilteredSearch} setAddItem={setAddItem} setPrice={setPrice} />
-       </>
+       </div>
      )
    }
 
