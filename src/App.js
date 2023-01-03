@@ -5,6 +5,7 @@
    import SearchBar from './components/SearchBar'
    import Navbar from './components/Navbar'
    import ShoppingCart from './components/ShoppingCart'
+   import ProductPage from './components/ProductPage'
 
    //Images
    import thunderBolt from './images/thunderbolt.webp'
@@ -81,15 +82,20 @@
     const [filteredSearch, setFilteredSearch] = useState(''); 
     const [additem, setAddItem] = useState([]);
     const [price, setPrice] = useState([]);
+    const [quantity, setQuantity] = useState(0);
 
     
      return (
+
       <div style={{ backgroundImage: `url(${Background})`, backgroundAttachment: 'fixed', backgroundSize: 'cover' }}>
-         <Navbar />
-         <ShoppingCart additem={additem} price={price} />
+         <ShoppingCart additem={additem} price={price} setAddItem={setAddItem} setPrice={setPrice} quantity={quantity} setQuantity={setQuantity} />
          <SearchBar arr={SnowboardArray}/>
-         <FilterableTable arr={SnowboardArray} setFilteredSearch={setFilteredSearch} setAddItem={setAddItem} setPrice={setPrice} />
+         <FilterableTable arr={SnowboardArray} setFilteredSearch={setFilteredSearch} setAddItem={setAddItem} setPrice={setPrice} quantity={quantity} setQuantity={setQuantity} />
+         <Navbar />
+         <ProductPage />
+ 
        </div>
+
      )
    }
 
