@@ -2,7 +2,7 @@ import React from 'react';
 
 import '../css/Checkout.scss'
 
-function CheckoutForm() {
+function CheckoutForm({total}) {
   return (
     <form>
       <h2>Billing Information</h2>
@@ -63,12 +63,12 @@ function CheckoutForm() {
       <br />
       <h2>Order Summary</h2>
       <ul>
-          <li>
-            name:  4 - $500
-          </li>
       </ul>
-      <p>Total: 500</p>
-      <button type="submit">Place Order</button>
+      <p>€{total}</p>
+
+      <button onClick={() => alert('Your order has been processed. Thanks!')} type="submit">{total <= 0 ? 'Your cart is empty: continue shopping' : 'Place Order'}</button>
+      
+
     </form>
   );
 }

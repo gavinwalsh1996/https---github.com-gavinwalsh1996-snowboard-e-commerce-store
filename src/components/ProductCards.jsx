@@ -8,15 +8,16 @@ import '../css/ProductCards.scss';
 //Components
 import Ratings from '../components/Ratings';
 import ProductPage from '../pages/ProductPage';
+import AddToCartBtn from './AddToCartBtn';
 
-function ProductCards ({setPrice, setAddItem, setQuantity, quantity, ...object}) { 
+function ProductCards ({addToCart,setPrice, setAddItem, setQuantity, quantity, ...object}) { 
 
 
-   function addToCart(object) {
-     setAddItem((prevAdditem) => [...prevAdditem, object]);
-     setPrice((prevSetPrice) => [...prevSetPrice, object]);
-     setQuantity(quantity + 1);  // update quantity
-   }
+  //  function addToCart(object) {
+  //    setAddItem((prevAdditem) => [...prevAdditem, object]);
+  //    setPrice((prevSetPrice) => [...prevSetPrice, object]);
+  //    setQuantity(quantity + 1);  // update quantity
+  //  }
 
 
   return (
@@ -28,7 +29,8 @@ function ProductCards ({setPrice, setAddItem, setQuantity, quantity, ...object})
       {/* Create link */}
       
       <Link to="/products"><button className='details'>Details</button></Link>
-      <button onClick={() => addToCart(object)}>Add to cart</button>
+      {/* <button onClick={() => addToCart(object)}>Add to cart</button> */}
+      <AddToCartBtn {...object} addToCart={addToCart} />
       </div>
       <h3>{object.name}</h3>
       <p>Directional freeride snowboard</p>

@@ -4,12 +4,12 @@ import React from 'react'
 import FilterableTable from '../components/FilterableTable' 
 
 
-function HomePage({arr, setFilteredSearch, setAddItem, setPrice, quantity, setQuantity}) {
+function HomePage({arr, setFilteredSearch, setAddItem, setPrice, quantity, setQuantity, addToCart}) {
 
   return (
 
     <div>
-      <FilterableTable arr={arr} setFilteredSearch={setFilteredSearch} setAddItem={setAddItem} setPrice={setPrice} quantity={quantity} setQuantity={setQuantity} />
+      <FilterableTable arr={arr} setFilteredSearch={setFilteredSearch} setAddItem={setAddItem} setPrice={setPrice} quantity={quantity} setQuantity={setQuantity} addToCart={addToCart} />
     </div>
 
   )

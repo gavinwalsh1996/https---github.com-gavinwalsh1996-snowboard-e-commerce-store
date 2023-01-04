@@ -26,6 +26,7 @@ import CheckOutPage from './pages/CheckOutPage';
 import NavBar from './components/Navbar'
 // import ProductPage from '../pages/ProductPage';
 import HomePage from './pages/HomePage';
+import { CommentsDisabledOutlined } from '@mui/icons-material';
 
 
 
@@ -108,19 +109,24 @@ import HomePage from './pages/HomePage';
     const [additem, setAddItem] = useState([]);
     const [price, setPrice] = useState([]);
     const [quantity, setQuantity] = useState(0);
-
-    // Test
-        //State that holds opens and closes values for cart
-  const [isOpen, setIsOpen] = useState(false);
+    //State that holds opens and closes values for cart
+    const [isOpen, setIsOpen] = useState(false);
 
   //Function that uses the setter function to change the state value for the cart to open
   function openPopup() {
     setIsOpen(true);
   }
 
-    //Function that uses the setter function to change the state value for the cart to closed
+  //Function that uses the setter function to change the state value for the cart to closed
   function closePopup() {
     setIsOpen(false);
+  }
+
+  //Add to cart function
+  function addToCart(object) {
+    setAddItem((prevAdditem) => [...prevAdditem, object]);
+    setPrice((prevSetPrice) => [...prevSetPrice, object]);
+    setQuantity(quantity + 1);  // update quantity
   }
   
   function removeFromCart(item) {
@@ -131,13 +137,12 @@ import HomePage from './pages/HomePage';
 
 
 const total = price.map(item => Number(item.price)).reduce((acc, value) => acc + value, 0);
-    //Test
-
      
      return (
 
       <div style={{ backgroundImage: `url(${Background})`, backgroundAttachment: 'fixed', backgroundSize: 'cover' }}>
-        <NavBar arr={SnowboardArray} setFilteredSearch={setFilteredSearch} setAddItem={setAddItem} setPrice={setPrice} quantity={quantity} setQuantity={setQuantity}/>
+         <Router>
+        {/* <NavBar arr={SnowboardArray} setFilteredSearch={setFilteredSearch} setAddItem={setAddItem} setPrice={setPrice} quantity={quantity} setQuantity={setQuantity}/> */}
          <ShoppingCart additem={additem} price={price} setAddItem={setAddItem} setPrice={setPrice} quantity={quantity} setQuantity={setQuantity} 
          removeFromCart={removeFromCart} openPopup={openPopup} isOpen={isOpen} setIsOpen={setIsOpen} closePopup={closePopup} total={total}/>
          {/* <FilterableTable arr={SnowboardArray} setFilteredSearch={setFilteredSearch} setAddItem={setAddItem} setPrice={setPrice} quantity={quantity} setQuantity={setQuantity} />
@@ -147,23 +152,19 @@ const total = price.map(item => Number(item.price)).reduce((acc, value) => acc +
 
 
       {/* Test */}
-      <>
-    <Router>
+      {/* <> */}
+    {/* <Router> */}
       <div className="navbar">
       <Link to='/home'><span style={{fontSize: '2rem', textDecoration: 'none', color: 'black'}}>Bataleon.</span></Link>
       </div>
 
       <Routes>
-      <Route path='/home' element={<HomePage arr={SnowboardArray} setFilteredSearch={setFilteredSearch} setAddItem={setAddItem} setPrice={setPrice} quantity={quantity} setQuantity={setQuantity} />} />
-      <Route path='/checkout' element={<CheckOutPage />} />
-      <Route path='/products' element={<ProductPage />} />
+      <Route path='/home' element={<HomePage arr={SnowboardArray} setFilteredSearch={setFilteredSearch} setAddItem={setAddItem} setPrice={setPrice} quantity={quantity} setQuantity={setQuantity} addToCart={addToCart} />} />
+      <Route path='/checkout' element={<CheckOutPage total={total} additem={additem}/>} />
+      <Route path='/products' element={<ProductPage addToCart={addToCart} />} />
       </Routes>
 
     </Router>
-    </>
-
-
-
 
 
       </div>

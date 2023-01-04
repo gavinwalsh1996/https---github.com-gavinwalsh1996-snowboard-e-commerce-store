@@ -4,7 +4,7 @@ import React, { useState, useEffect, useMemo } from 'react'
 import TypeSelector from './TypeSelector'
 import ProductCards from './ProductCards'
 
-function FilterableTable({arr, setAddItem, setPrice, quantity, setQuantity}) {
+function FilterableTable({arr, setAddItem, setPrice, quantity, setQuantity, addToCart}) {
 
    // State to store the all items / full product array
  const [allObjects, setAllobjects] = useState([]);
@@ -59,7 +59,7 @@ function FilterableTable({arr, setAddItem, setPrice, quantity, setQuantity}) {
         {/* Product cards */}
         <div className="card-container" style={{display: 'flex', justifyContent: 'center', width: '100%', flexWrap: 'wrap', gap: '1rem', paddingTop: '100px'}}>
         {filteredList.map((object, index) => (
-          <ProductCards {...object} key={index} setAddItem={setAddItem} setPrice={setPrice} quantity={quantity} setQuantity={setQuantity}/>
+          <ProductCards {...object} key={index} setAddItem={setAddItem} setPrice={setPrice} quantity={quantity} setQuantity={setQuantity} addToCart={addToCart}/>
         ))}
         </div>
     </>
