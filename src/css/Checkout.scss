@@ -50,9 +50,22 @@ form {
       p {
         text-align: right;
         font-weight: bold;
-      }
-      
-
-
+      }    
   }
+
+  form {
+    width: 500px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+  
+    @media (max-width: 500px) {
+      width: 90%;
+    }
+    
+    h2 {
+      text-align: center;
+      margin: 20px 0;
+    }
+  }
+  
   

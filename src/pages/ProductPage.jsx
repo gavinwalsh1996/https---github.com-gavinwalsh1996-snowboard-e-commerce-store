@@ -5,7 +5,7 @@ import '../css/ProductPage.scss'
 import Video from '../components/Video'
 import MyVideo from '../images/video.mp4'
 
-function ProductPage() {
+function ProductPage({product}) {
 
   return (
 
@@ -13,22 +13,23 @@ function ProductPage() {
     <div className="product-page">
 
       <div className="prod-image">
-        <img src={Image} alt='' />
+        <img src={product.image} alt='' />
       </div>
 
       <div className="prod-details">
-        <h1>Evil Twin</h1>
-        <p>Price: 600</p>
-        <p>The Thunder Bolt takes freeride snowboard..</p>
+        <h1>{product.name}</h1>
+        <p>€{product.price}</p>
+        <p className='product-description'>{product.desc}</p>
         <button>Add to cart</button>
+        <button>Checkout</button>
       </div>
 
     </div>
 
       <div class="image-gallery">
-        <img src={Image} alt="Image 1" />
-        <img src={Image} alt="Image 2" />
-        <img src={Image} alt="Image 3" />
+        <img src={product.image} alt="Image 1" />
+        <img src={product.image} alt="Image 2" />
+        <img src={product.image} alt="Image 3" />
       </div>
 
       {/* <Video 

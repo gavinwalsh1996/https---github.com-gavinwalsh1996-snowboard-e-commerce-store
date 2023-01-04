@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 
 
@@ -10,15 +10,12 @@ import Ratings from '../components/Ratings';
 import ProductPage from '../pages/ProductPage';
 import AddToCartBtn from './AddToCartBtn';
 
-function ProductCards ({addToCart,setPrice, setAddItem, setQuantity, quantity, ...object}) { 
+function ProductCards ({setProduct, addToCart,setPrice, setAddItem, setQuantity, quantity, ...object}) { 
 
-
-  //  function addToCart(object) {
-  //    setAddItem((prevAdditem) => [...prevAdditem, object]);
-  //    setPrice((prevSetPrice) => [...prevSetPrice, object]);
-  //    setQuantity(quantity + 1);  // update quantity
-  //  }
-
+function getObject(object) {
+  setProduct(object);
+}
+ 
 
   return (
 
@@ -28,12 +25,13 @@ function ProductCards ({addToCart,setPrice, setAddItem, setQuantity, quantity, .
       <div className="test" style={{display: 'flex'}}> 
       {/* Create link */}
       
-      <Link to="/products"><button className='details'>Details</button></Link>
+      <Link to="/products"><button onClick={() => getObject(object)} className='details'>Details</button></Link>
       {/* <button onClick={() => addToCart(object)}>Add to cart</button> */}
       <AddToCartBtn {...object} addToCart={addToCart} />
+      
       </div>
       <h3>{object.name}</h3>
-      <p>Directional freeride snowboard</p>
+      <p>{object.shape}</p>
       {/* <span>reviews</span> */}
       <span>€{object.price}</span>
       <Ratings arr={object} />

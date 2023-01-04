@@ -32,7 +32,7 @@ function CheckoutForm({total}) {
           name="address"
         />
       </label>
-      <br />
+      {/* <br />
       <h2>Shipping Information</h2>
       <label htmlFor="name">
         Name:
@@ -59,7 +59,7 @@ function CheckoutForm({total}) {
           id="address"
           name="address"
         />
-      </label>
+      </label> */}
       <br />
       <h2>Order Summary</h2>
       <ul>
