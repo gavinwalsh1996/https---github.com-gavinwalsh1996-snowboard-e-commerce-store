@@ -57,7 +57,7 @@ function FilterableTable({arr, setAddItem, setPrice, quantity, setQuantity}) {
           <TypeSelector setFilteredObjects={setFilteredObjects}/>
 
         {/* Product cards */}
-        <div className="card-container" style={{display: 'flex', justifyContent: 'center', width: '100%', flexWrap: 'wrap', gap: '1rem'}}>
+        <div className="card-container" style={{display: 'flex', justifyContent: 'center', width: '100%', flexWrap: 'wrap', gap: '1rem', paddingTop: '100px'}}>
         {filteredList.map((object, index) => (
           <ProductCards {...object} key={index} setAddItem={setAddItem} setPrice={setPrice} quantity={quantity} setQuantity={setQuantity}/>
         ))}

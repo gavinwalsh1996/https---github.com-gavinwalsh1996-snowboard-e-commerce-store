@@ -1,11 +1,13 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
+
 
 //Styles
 import '../css/ProductCards.scss';
 
 //Components
 import Ratings from '../components/Ratings';
-import ProductPage from './ProductPage';
+import ProductPage from '../pages/ProductPage';
 
 function ProductCards ({setPrice, setAddItem, setQuantity, quantity, ...object}) { 
 
@@ -21,8 +23,13 @@ function ProductCards ({setPrice, setAddItem, setQuantity, quantity, ...object})
 
     <div className="card">
       <img src={object.image} alt='Image' />
-      <button className='details'>Details</button>
+      {/* Temp fix */}
+      <div className="test" style={{display: 'flex'}}> 
+      {/* Create link */}
+      
+      <Link to="/products"><button className='details'>Details</button></Link>
       <button onClick={() => addToCart(object)}>Add to cart</button>
+      </div>
       <h3>{object.name}</h3>
       <p>Directional freeride snowboard</p>
       {/* <span>reviews</span> */}

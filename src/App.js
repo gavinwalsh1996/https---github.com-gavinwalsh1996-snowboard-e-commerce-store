@@ -1,11 +1,13 @@
    import React, { useEffect, useState } from 'react'
+   import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
    //Components
    import FilterableTable from './components/FilterableTable'
    import SearchBar from './components/SearchBar'
-   import Navbar from './components/Navbar'
+  //  import Navbar from './components/Navbar'
    import ShoppingCart from './components/ShoppingCart'
-   import ProductPage from './components/ProductPage'
+   import ProductPage from './pages/ProductPage'
+   import CheckOut from './components/Checkout'
 
    //Images
    import thunderBolt from './images/thunderbolt.webp'
@@ -14,6 +16,18 @@
    import surfer from './images/surfer.webp'
    import evilTwin from './images/evil-twin.webp'
    import Background from './images/background.jpg'
+
+   //Test
+import './css/Navbar.scss'
+import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
+
+//Pages
+import CheckOutPage from './pages/CheckOutPage';
+import NavBar from './components/Navbar'
+// import ProductPage from '../pages/ProductPage';
+import HomePage from './pages/HomePage';
+
+
 
    function App() {
 
@@ -76,6 +90,17 @@
         rating: '8',
         image: partyWave,
       },
+      {
+        id: 6,
+        name: "Party Wave",
+        availability: "in stock",
+        shape: "directional",
+        Level: "Expert",
+        size: "157",
+        price: "600",
+        rating: '8',
+        image: partyWave,
+      },
   ]
   
     //State 
@@ -84,17 +109,64 @@
     const [price, setPrice] = useState([]);
     const [quantity, setQuantity] = useState(0);
 
-    
+    // Test
+        //State that holds opens and closes values for cart
+  const [isOpen, setIsOpen] = useState(false);
+
+  //Function that uses the setter function to change the state value for the cart to open
+  function openPopup() {
+    setIsOpen(true);
+  }
+
+    //Function that uses the setter function to change the state value for the cart to closed
+  function closePopup() {
+    setIsOpen(false);
+  }
+  
+  function removeFromCart(item) {
+    setAddItem(additem.filter((i) => i !== item));
+    setPrice(price.filter((i) => i !== item));
+    setQuantity(quantity - 1); 
+  }
+
+
+const total = price.map(item => Number(item.price)).reduce((acc, value) => acc + value, 0);
+    //Test
+
+     
      return (
 
       <div style={{ backgroundImage: `url(${Background})`, backgroundAttachment: 'fixed', backgroundSize: 'cover' }}>
-         <ShoppingCart additem={additem} price={price} setAddItem={setAddItem} setPrice={setPrice} quantity={quantity} setQuantity={setQuantity} />
-         <SearchBar arr={SnowboardArray}/>
-         <FilterableTable arr={SnowboardArray} setFilteredSearch={setFilteredSearch} setAddItem={setAddItem} setPrice={setPrice} quantity={quantity} setQuantity={setQuantity} />
-         <Navbar />
-         <ProductPage />
- 
-       </div>
+        <NavBar arr={SnowboardArray} setFilteredSearch={setFilteredSearch} setAddItem={setAddItem} setPrice={setPrice} quantity={quantity} setQuantity={setQuantity}/>
+         <ShoppingCart additem={additem} price={price} setAddItem={setAddItem} setPrice={setPrice} quantity={quantity} setQuantity={setQuantity} 
+         removeFromCart={removeFromCart} openPopup={openPopup} isOpen={isOpen} setIsOpen={setIsOpen} closePopup={closePopup} total={total}/>
+         {/* <FilterableTable arr={SnowboardArray} setFilteredSearch={setFilteredSearch} setAddItem={setAddItem} setPrice={setPrice} quantity={quantity} setQuantity={setQuantity} />
+         {/* <SearchBar arr={SnowboardArray}/> */}
+         {/* <ProductPage /> */}
+         {/* <CheckOut />
+
+
+      {/* Test */}
+      <>
+    <Router>
+      <div className="navbar">
+      <Link to='/home'><span style={{fontSize: '2rem', textDecoration: 'none', color: 'black'}}>Bataleon.</span></Link>
+      </div>
+
+      <Routes>
+      <Route path='/home' element={<HomePage arr={SnowboardArray} setFilteredSearch={setFilteredSearch} setAddItem={setAddItem} setPrice={setPrice} quantity={quantity} setQuantity={setQuantity} />} />
+      <Route path='/checkout' element={<CheckOutPage />} />
+      <Route path='/products' element={<ProductPage />} />
+      </Routes>
+
+    </Router>
+    </>
+
+
+
+
+
+      </div>
 
      )
    }

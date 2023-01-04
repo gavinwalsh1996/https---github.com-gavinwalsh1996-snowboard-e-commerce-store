@@ -1,18 +1,33 @@
 import React from 'react'
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+
+//Css
 import '../css/Navbar.scss'
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 
-function Navbar() {
+//Pages
+import CheckOutPage from '../pages/CheckOutPage';
+import ProductPage from '../pages/ProductPage';
+import HomePage from '../pages/HomePage';
+
+function Navbar({arr, setFilteredSearch, setAddItem, setPrice, quantity, setQuantity}) {
 
   return (
 
-    <div className="navbar">
+  <>
+    <Router>
+      <div className="navbar">
+      <Link to='/home'><span style={{fontSize: '2rem', textDecoration: 'none', color: 'black'}}>Bataleon.</span></Link>
+      </div>
 
-      <span style={{fontSize: '2rem'}}>Bataleon.</span>
-        <ul>
-            <li><ShoppingBasketIcon sx={{cursor: 'pointer'}}/></li>
-        </ul>
-    </div>
+      <Routes>
+      <Route path='/home' element={<HomePage arr={arr} setFilteredSearch={setFilteredSearch} setAddItem={setAddItem} setPrice={setPrice} quantity={quantity} setQuantity={setQuantity} />} />
+      <Route path='/checkout' element={<CheckOutPage />} />
+      <Route path='/products' element={<ProductPage />} />
+      </Routes>
+
+    </Router>
+    </>
 
   )
 }

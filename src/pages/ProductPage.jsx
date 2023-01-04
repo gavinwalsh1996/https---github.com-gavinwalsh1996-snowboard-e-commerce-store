@@ -31,9 +31,9 @@ function ProductPage() {
         <img src={Image} alt="Image 3" />
       </div>
 
-      <Video 
+      {/* <Video 
         videoUrl={MyVideo}
-      />
+      /> */}
 
   </>
   //   <div className="product-page">
