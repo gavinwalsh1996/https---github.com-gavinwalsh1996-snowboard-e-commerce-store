@@ -17,19 +17,6 @@ function FilterableTable({arr, setAddItem, setPrice, quantity, setQuantity, addT
   setAllobjects(arr);
  }, []);
 
- // Function to filter the main array with the selected filter value stored in the state
- // Original function that wasn't working.
- //  function getFilteredList() {
- //   if (!filteredObjects) {
- //     return allObjects;  
- //   } 
- //     if (filteredObjects === 'directional' || 'directional-twin' || 'twin' ) {
- //       return allObjects.filter((object) => object.shape === filteredObjects)
-
- //     } else if (filteredObjects === '154' || '156' || '157' ) {
- //       return allObjects.filter((object) => object.size === filteredObjects)
- //     }
- //  }
 
  function getFilteredList() {
     if (!filteredObjects) {

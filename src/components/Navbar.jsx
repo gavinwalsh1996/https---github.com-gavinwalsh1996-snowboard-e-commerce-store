@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
 //Css
 import '../css/Navbar.scss'
-import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 
 //Pages
 import CheckOutPage from '../pages/CheckOutPage';

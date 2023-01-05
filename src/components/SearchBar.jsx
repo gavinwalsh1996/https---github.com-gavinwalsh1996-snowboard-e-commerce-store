@@ -1,13 +1,12 @@
 import React, { useState } from "react"
-
 //Css
 import '../css/SearchBar.scss'
 
 
 function SearchBar({arr}) {
 
-//State to hold the user input value
-const [searchTerm, setSearchTerm] = useState("");
+    //State to hold the user input value
+    const [searchTerm, setSearchTerm] = useState("");
 
   return (
 

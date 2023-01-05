@@ -33,18 +33,7 @@ function ProductPage({product}) {
         <img src={product.image} alt="Image 3" />
       </div>
 
-      {/* <Video 
-        videoUrl={MyVideo}
-      /> */}
-
   </>
-  //   <div className="product-page">
-  //   <h1>{name}</h1>  
-  //   <img src={image} alt={name} />
-  //   <p>{description}</p>
-  //   <p>Price: {price}</p>
-  //   <button>Add to cart</button>
-  // </div>
     
   )
 }
