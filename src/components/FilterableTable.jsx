@@ -15,7 +15,7 @@ function FilterableTable({arr, setAddItem, setPrice, quantity, setQuantity, addT
  // Use effect to put the full product array inside the all objects state variable on mount
  useEffect(() => {
   setAllobjects(arr);
- }, []);
+ }, [arr]);
 
 
  function getFilteredList() {

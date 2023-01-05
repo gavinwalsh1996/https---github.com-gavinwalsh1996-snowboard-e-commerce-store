@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom';
 
 //Styles
@@ -18,7 +18,7 @@ function ProductCards ({setProduct, addToCart,setPrice, setAddItem, setQuantity,
   return (
 
     <div className="card">
-      <img src={object.image} alt='Image' />
+      <img src={object.image} alt='' />
 
       <div className="test" style={{display: 'flex'}}> 
         <Link to="/products"><button onClick={() => getObject(object)} className='details'>Details</button></Link>

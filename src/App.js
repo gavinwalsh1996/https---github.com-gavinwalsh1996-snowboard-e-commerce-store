@@ -99,7 +99,7 @@ const SnowboardArray = [
 ]
 
  //State 
- const [filteredSearch, setFilteredSearch] = useState(''); 
+ const [setFilteredSearch] = useState(''); 
  const [additem, setAddItem] = useState([]);
  const [price, setPrice] = useState([]);
  const [quantity, setQuantity] = useState(0);

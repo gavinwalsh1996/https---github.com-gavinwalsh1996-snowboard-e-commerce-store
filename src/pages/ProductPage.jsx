@@ -1,6 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import Image from '../images/evil-twin.webp'
+import { Link } from 'react-router-dom';
 import '../css/ProductPage.scss'
 
 import Video from '../components/Video'
@@ -28,10 +27,12 @@ function ProductPage({product}) {
     </div>
 
       <div class="image-gallery">
-        <img src={product.image} alt="Image 1" />
-        <img src={product.image} alt="Image 2" />
-        <img src={product.image} alt="Image 3" />
+        <img src={product.image} alt="" />
+        <img src={product.image} alt="" />
+        <img src={product.image} alt="" />
       </div>
+
+      <Video src={MyVideo}/>
 
   </>
     
