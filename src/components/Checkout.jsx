@@ -5,8 +5,10 @@ import '../css/Checkout.scss'
 
 
 function CheckoutForm({total}) {
+
+
   return (
-    <form>
+    <form action='/checkout'> 
 
       <h2>Billing Information</h2>
 
