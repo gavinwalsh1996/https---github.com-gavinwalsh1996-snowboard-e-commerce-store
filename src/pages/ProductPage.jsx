@@ -1,4 +1,5 @@
 import React from 'react'
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Image from '../images/evil-twin.webp'
 import '../css/ProductPage.scss'
 
@@ -21,7 +22,7 @@ function ProductPage({product}) {
         <p>€{product.price}</p>
         <p className='product-description'>{product.desc}</p>
         <button>Add to cart</button>
-        <button>Checkout</button>
+        <Link to='/checkout'><button>Checkout</button></Link>
       </div>
 
     </div>
