@@ -20,8 +20,10 @@ function ProductPage({product}) {
         <h1>{product.name}</h1>
         <p>€{product.price}</p>
         <p className='product-description'>{product.desc}</p>
-        <button>Add to cart</button>
-        <Link to='/checkout'><button>Checkout</button></Link>
+        <div style={{display: 'flex', gap: '1rem', justifyContent: 'center'}}>
+        <button style={{backgroundColor: '#4caf91'}}>Add to cart</button>
+        <Link to='/checkout'><button style={{backgroundColor: '#4caf91'}}>Checkout</button></Link>
+        </div>
       </div>
 
     </div>

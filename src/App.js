@@ -106,6 +106,7 @@ const SnowboardArray = [
  //State that holds opens and closes values for cart
  const [isOpen, setIsOpen] = useState(false);
  const [product, setProduct] = useState()
+ 
 
 
 //Function that uses the setter function to change the state value for the cart to open
@@ -146,9 +147,10 @@ const total = price.map(item => Number(item.price)).reduce((acc, value) => acc +
           <span style={{padding: '2rem', fontSize: '1.1rem'}}>Snowboards</span>
         </div>
 
+
         <Routes>
           <Route path='/home' element={<HomePage arr={SnowboardArray} setFilteredSearch={setFilteredSearch} setAddItem={setAddItem} setPrice={setPrice} quantity={quantity} setQuantity={setQuantity} addToCart={addToCart} setProduct={setProduct} />} />
-          <Route path='/checkout' element={<CheckOutPage total={total} additem={additem}/>} />
+          <Route path='/checkout' element={<CheckOutPage total={total} additem={additem} setAddItem={setAddItem} removeFromCart={removeFromCart}/>} />
           <Route path='/products' element={<ProductPage addToCart={addToCart} product={product} />} />
         </Routes>
       </Router>

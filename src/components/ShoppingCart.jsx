@@ -33,7 +33,7 @@ function ShoppingCart({additem, price, setAddItem, setPrice, quantity, setQuanti
           )}
           <span style={{display: 'flex', justifyContent: 'space-between'}}>
             <button onClick={closePopup}>Close</button>
-            <Link to="/checkout"><button>Checkout</button></Link>
+            <Link to="/checkout"><button onClick={closePopup}>Checkout</button></Link>
           </span>
       </div>
         <button style={{border: 'none', backgroundColor: 'transparent', position: 'fixed', right: '0', zIndex: '1000', padding: '1rem 1rem'}} onClick={openPopup}><ShoppingBasketIcon sx={{cursor: 'pointer'}} /> <span style={{color: 'red'}}>{quantity < 1 ? null : quantity}</span></button>

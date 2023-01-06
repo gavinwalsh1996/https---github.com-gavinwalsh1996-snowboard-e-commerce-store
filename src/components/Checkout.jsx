@@ -1,14 +1,19 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 //Css
 import '../css/Checkout.scss'
 
 
-function CheckoutForm({total}) {
+function CheckoutForm({total, removeFromCart, additem}) {
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+  }
 
 
   return (
-    <form action='/checkout'> 
+    <form action='/checkout' onSubmit={handleSubmit}> 
 
       <h2>Billing Information</h2>
 
@@ -48,7 +53,7 @@ function CheckoutForm({total}) {
       <h2>Order Summary</h2>
       <p>€{total}</p>
 
-        <button onClick={() => alert('Your order has been processed. Thanks!')} type="submit">{total <= 0 ? 'Your cart is empty: continue shopping' : 'Place Order'}</button>
+      <Link to='/home'><button onClick={() => alert('Your order has been processed. Thanks!')} type="submit">{total <= 0 ? 'Your cart is empty: continue shopping' : 'Place Order'}</button></Link>
       
 
     </form>
@@ -56,6 +61,7 @@ function CheckoutForm({total}) {
 }
 
 export default CheckoutForm;
+
 
 
 

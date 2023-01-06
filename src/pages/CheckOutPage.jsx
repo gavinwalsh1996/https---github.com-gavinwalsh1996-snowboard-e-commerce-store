@@ -5,7 +5,8 @@ import Checkout from '../components/Checkout'
 //Css
 import '../css/ShoppingCartSummary.scss'
 
-function CheckOutPage({total, additem}) {
+function CheckOutPage({total, additem, setAddItem, removeFromCart}) {
+
 
   return (
 
@@ -27,7 +28,7 @@ function CheckOutPage({total, additem}) {
       </div>
 
       <div className='checkout-form'>
-        <Checkout total={total} />
+        <Checkout total={total} removeFromCart={removeFromCart} additem={additem}/>
       </div>
 
     </div>
