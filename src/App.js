@@ -10,7 +10,6 @@ import goliath from './images/goliath.webp'
 import partyWave from './images/partywave.webp' 
 import surfer from './images/surfer.webp'
 import evilTwin from './images/evil-twin.webp'
-import Background from './images/background.jpg'
 import Thunder from './images/thunder.webp'
 //Css
 import './css/Navbar.scss'
@@ -137,19 +136,19 @@ const total = price.map(item => Number(item.price)).reduce((acc, value) => acc +
   
   return (
 
-   <div style={{ backgroundImage: `url(${Background})`, backgroundAttachment: 'fixed', backgroundSize: 'cover' }}>
+   <div style={{ backgroundAttachment: 'fixed', backgroundSize: 'cover' }}>
       <Router>
         <ShoppingCart additem={additem} price={price} setAddItem={setAddItem} setPrice={setPrice} quantity={quantity} setQuantity={setQuantity} 
         removeFromCart={removeFromCart} openPopup={openPopup} isOpen={isOpen} setIsOpen={setIsOpen} closePopup={closePopup} total={total}/>
 
         <div className="navbar">
-          <Link to='/home'><span style={{fontSize: '2rem', textDecoration: 'none', color: 'black'}}>Bataleon.</span></Link>
-          <span style={{padding: '2rem', fontSize: '1.1rem'}}>Snowboards</span>
+          <Link to='/'><span style={{fontSize: '2rem', textDecoration: 'none', color: 'black'}}>Bataleon.</span></Link>
+          {/* <span style={{padding: '2rem', fontSize: '1.1rem'}}>Snowboards</span> */}
         </div>
 
 
         <Routes>
-          <Route path='/home' element={<HomePage arr={SnowboardArray} setFilteredSearch={setFilteredSearch} setAddItem={setAddItem} setPrice={setPrice} quantity={quantity} setQuantity={setQuantity} addToCart={addToCart} setProduct={setProduct} />} />
+          <Route path='/' element={<HomePage arr={SnowboardArray} setFilteredSearch={setFilteredSearch} setAddItem={setAddItem} setPrice={setPrice} quantity={quantity} setQuantity={setQuantity} addToCart={addToCart} setProduct={setProduct} />} />
           <Route path='/checkout' element={<CheckOutPage total={total} additem={additem} setAddItem={setAddItem} removeFromCart={removeFromCart}/>} />
           <Route path='/products' element={<ProductPage addToCart={addToCart} product={product} />} />
         </Routes>

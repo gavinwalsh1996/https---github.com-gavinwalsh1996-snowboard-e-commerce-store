@@ -29,7 +29,7 @@ function ShoppingCart({additem, price, setAddItem, setPrice, quantity, setQuanti
 
             </ul>
           ) : (
-            <p>Your shopping cart is empty.</p>
+            <p style={{padding: '1rem 0'}}>Your shopping cart is empty.</p>
           )}
           <span style={{display: 'flex', justifyContent: 'space-between'}}>
             <button onClick={closePopup}>Close</button>

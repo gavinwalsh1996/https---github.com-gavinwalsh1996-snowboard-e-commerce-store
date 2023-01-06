@@ -18,7 +18,7 @@ function CheckOutPage({total, additem, setAddItem, removeFromCart}) {
           <ul>
             {additem.map((item) => (
               <li>
-                {item.name}
+                {item.name + ' Snowboard'} 
               </li>
             ))}
                   

@@ -2,8 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import '../css/ProductPage.scss'
 
-import Video from '../components/Video'
-import MyVideo from '../images/video.mp4'
 
 function ProductPage({product}) {
 
@@ -34,7 +32,7 @@ function ProductPage({product}) {
         <img src={product.image} alt="" />
       </div>
 
-      <Video src={MyVideo}/>
+      {/* <Video src={MyVideo}/> */}
 
   </>
     
