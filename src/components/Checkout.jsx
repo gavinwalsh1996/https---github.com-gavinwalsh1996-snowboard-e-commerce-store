@@ -53,7 +53,12 @@ function CheckoutForm({total, removeFromCart, additem}) {
       <h2>Order Summary</h2>
       <p>€{total}</p>
 
-      <Link to='/'><button onClick={() => alert('Your order has been processed. Thanks!')} type="submit">{total <= 0 ? 'Your cart is empty: continue shopping' : 'Place Order'}</button></Link>
+      <Link to='/'>
+        <button onClick={() => alert(total <= 0 ? 'Your cart is empty. Please add an item to the cart before checkout.' : 'Your order has been processed. Thanks!')} type="submit">
+        { total <= 0 ? 'Place Order' : 'Place Order'}
+        </button>
+      </Link>
+
       
 
     </form>
