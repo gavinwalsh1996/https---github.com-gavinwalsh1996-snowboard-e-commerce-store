@@ -11,28 +11,42 @@ A small CRUD application designed using my favourite snowboard brand. This proje
 ![Snowboard-store-mobile](https://user-images.githubusercontent.com/101522330/211152368-e12dcd30-ec2e-4fce-89c9-21ef11e40ea9.png)
 
 <h1>Inspiration</h1>
-After posting my portfolio online for feedback, I had lots of people mention that I didn't have enough projects within my portfolio website. This was something I was aware of myself and wanted to add as many projects as possible to better my chances of finding a job. I realized that I was missing a simple web design of a generic company website as my current projects were more app/entertainment focused.
+I designed this project with just functionality in mind. I wanted to work on something that was more heavily Javascript based rather than styling. (I feel that sometimes styling can become a distraction and get in the way of learning functionality). I wanted to showcase my ability to create CRUD actions and thought that an e-commerce application would be a great place to show that. Eventhough I did mention that this project was all about functionality, I did go in and add some inline styling and stylesheets at the end to enhance the overall look of the project. All content displayed on the website is credited to Bataleon Snowboards as I used there images and products to create the app. I decided to go with a real brand because it makes me more passionate about the overall project.
 
 <h1>Summary</h1>
-With this design, I spent a lot of time planning and gathering information from many different construction websites. In the end, I gathered most of my content (written information) from a live website and made the tweaks to make it my own. I felt that it was not worth my time coming up with all of the company information myself from scratch and could spend that time on more important tasks within my project.
+With this design, I spent most of time creating functions and state to handle the CRUD actions used to power the project. 
+I learned a lot from this project and it was quiet challenging at times handling the overall state of the app and passing props through each component. If I was to make something similiar again, I would used a state management tool to centralize the state. This would definitely make things a lot easier to manage and would be more time efficient. I will be considering using Redux next time to help with these issues.
 
-This project wasn't overly challenging for me because of it's simplicity but I defintely still learned a lot from it and improved my overall web development skills. It also encouraged me to learn Tailwind CSS for my next project as I noticed that I spent a lot of time with stylesheets which really slowed down the process.
+<h1>Built With</h1>
 
-Built With
-React.js
-SASS
-Material UI
-Features
-Mobile responsive / mobile header on smaller screen sizes
-Full width slideshow on landing page
-Very user friendly
-Installation and Useage
-Install Dependencies
+- React.js
+
+- SASS
+
+- Material UI
+
+<h1>Features</h1>
+
+- Mobile responsive 
+
+- Shopping cart with the ability to edit products
+
+- Board type and size selector
+
+- Dynamic details page for each board
+
+- Checkout page that displays calculated total based on current products in cart
+
+<h1>Installation and Useage</h1>  
+
+<h3>Install Dependencies</h3>
+
 npm install
 
 In the project directory, you can run:
 
-npm start
+<h3>npm start</h3>
+
 Runs the app in the development mode. Open http://localhost:3000 to view it in the browser.
 
 Open http://localhost:3000 to view it in the browser.
