@@ -22,7 +22,6 @@ function ShoppingCart({additem, price, setAddItem, setPrice, quantity, setQuanti
               {additem.map(item => (
                 <>
                 <li key={item.id}><span style={{paddingRight: '10rem'}}>{item.name} - €{item.price}</span>
-                  
                 <button onClick={() => removeFromCart(item)}><ClearIcon sx={{width: '1rem'}}/></button></li>
                 </>
               ))}

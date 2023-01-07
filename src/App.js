@@ -143,9 +143,7 @@ const total = price.map(item => Number(item.price)).reduce((acc, value) => acc +
 
         <div className="navbar">
           <Link to='/'><span style={{fontSize: '2rem', textDecoration: 'none', color: 'black'}}>Bataleon.</span></Link>
-          {/* <span style={{padding: '2rem', fontSize: '1.1rem'}}>Snowboards</span> */}
         </div>
-
 
         <Routes>
           <Route path='/' element={<HomePage arr={SnowboardArray} setFilteredSearch={setFilteredSearch} setAddItem={setAddItem} setPrice={setPrice} quantity={quantity} setQuantity={setQuantity} addToCart={addToCart} setProduct={setProduct} />} />
