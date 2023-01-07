@@ -1,4 +1,4 @@
-Snowbard E-Commerce CRUD Application
+<h1>Snowbard E-Commerce CRUD Application</h1>
 
 A small CRUD application designed using my favourite snowboard brand. This project was built using React and styled with SASS.
 
